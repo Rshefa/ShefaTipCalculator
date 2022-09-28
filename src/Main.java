@@ -12,7 +12,7 @@ public class Main {
 
 
              System.out.print("Enter a cost in dollars and cents, eg. 12.50 (0 to end): ");
-             double cost = scan.nextDouble();
+             double cost = scan.nextDouble(); //need to figure out how to add up the costs
 
         while (cost != 0) { //While loop
             System.out.print("Enter a cost in dollars and cents, eg. 12.50 (0 to end): ");
