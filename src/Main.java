@@ -1,31 +1,51 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class Main {
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-            final int end = 0;
-            System.out.print("Welcome to the tip calculator!");
-            System.out.print("How many people are in your group? ");
-            int group = scan.nextInt();
-            System.out.print("What's the tip percentage? (0 - 100): ");
-            int tip = scan.nextInt();
+
+        //initialize object
+        Scanner scan =new Scanner(System.in);
+        DecimalFormat formatter = new DecimalFormat("#.##");
+
+        //variables
+        double totalCost = 0;
+        double cost = 0;
+        int tip;
+        int group;
+        double totalWithTip;
 
 
-             System.out.print("Enter a cost in dollars and cents, eg. 12.50 (0 to end): ");
-             double cost = scan.nextDouble(); //need to figure out how to add up the costs
+        //user input
+        System.out.println("Welcome to the tip calculator!");
+        System.out.print("How many people are in your group? ");
+        group = scan.nextInt();
+        System.out.print("What's the tip percentage? (0 - 100): ");
+        tip = scan.nextInt();
+        scan.nextLine();
 
-        while (cost != 0) { //While loop
+        //While loop
+        while (cost != -1) {
             System.out.print("Enter a cost in dollars and cents, eg. 12.50 (0 to end): ");
-             cost = scan.nextDouble();
+            cost = scan.nextDouble();
+            totalCost += cost;
+            scan.nextLine();
         }
 
-            double bill = cost;
-            double totalTip = bill * tip;
-            double total = bill + totalTip;
+        //Print and calculate
+        totalCost ++;
+        totalWithTip = totalCost * (((double) tip / 100) + 1);
+        System.out.println("-------------------------");
+        System.out.println("Total Bill Before Tip: " + formatter.format(totalCost));
+        System.out.println("Tip Percentage: " + tip);
+        System.out.println("Total Tip: " + (formatter.format(totalWithTip - totalCost)));
+        System.out.println("Total Bill With Tip: " + formatter.format(totalWithTip));
+        System.out.println("Per person cost before Tip: " +(formatter.format(totalCost / group)));
+        System.out.println("Tip per person: " + formatter.format(((totalWithTip - totalCost) / group)));
+        System.out.println("Total cost per person: " + formatter.format(totalCost / group));
 
-
-      //  int number = scan.nextInt();
 
         scan.close();
     }
 }
+
