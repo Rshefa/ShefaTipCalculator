@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 public class Main {
     public static void main(String[] args){
 
-        //initialize object
+        //constructor
         Scanner scan =new Scanner(System.in);
         DecimalFormat formatter = new DecimalFormat("#.##");
 
@@ -26,7 +26,7 @@ public class Main {
 
         //While loop
         while (cost != -1) {
-            System.out.print("Enter a cost in dollars and cents, eg. 12.50 (0 to end): ");
+            System.out.print("Enter a cost in dollars and cents, eg. 12.50 (-1 to end): ");
             cost = scan.nextDouble();
             totalCost += cost;
             scan.nextLine();
